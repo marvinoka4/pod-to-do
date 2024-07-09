@@ -1,3 +1,12 @@
+main {
+    font-family: sans-serif;
+    margin: 0 50px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
 .to-do {
     overflow-y: scroll;
     height: 500px;

@@ -70,7 +70,7 @@ let createTodo = () => {
                         <a class="button secondary">
                             <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
-                        <a class="button alert">
+                        <a class="button alert" onclick="deleteTask(this)">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -80,6 +80,15 @@ let createTodo = () => {
     `;
 
     resetForm();
+};
+
+
+let deleteTask = (e) => {
+    e.parentElement.parentElement.parentElement.parentElement.remove();
+    // todos.splice(e.parentElement.parentElement.id, 1);
+    // localStorage.setItem("data", JSON.stringify(data));
+    // console.log(todos);
+
 };
 
 
