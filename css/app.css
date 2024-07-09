@@ -1,0 +1,13 @@
+.to-do {
+    overflow-y: scroll;
+    height: 500px;
+}
+
+#errorMessage {
+    color: red;
+    font-size: 14px;
+}
+
+.app::-webkit-scrollbar {
+    width: 0 !important;
+}
