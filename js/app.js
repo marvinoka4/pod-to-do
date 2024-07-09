@@ -106,40 +106,6 @@ let createTasks = () => {
     resetForm();
 };
 
-let createTodo = () => {
-    allTasks.innerHTML += `
-        <div class="callout">
-            <div class="grid-x grid-padding-x">
-                <div class="cell medium-12">
-                    <span>${todos.title}</span>
-                </div>
-                <div class="cell medium-12">
-                    <span>${todos.date}</span>
-                </div>
-                <div class="cell medium-12">
-                    <span>${todos.content}</span>
-                </div>
-                <div class="cell medium-12 status-${todos.status}" id="taskStatusCheck">
-                    <span class="status-text">Status: ${todos.status} <i class="fa fa-check-square" aria-hidden="true"></i></span>
-                </div>
-                <div class="cell medium-12">
-                    <div class="button-group hollow align-spaced options">
-                        <a class="button secondary" data-open="taskModal" onclick="editTask(this)">
-                            <i class="fa fa-edit" aria-hidden="true"></i>
-                        </a>
-                        <a class="button alert" onclick="deleteTask(this)">
-                            <i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
-    resetForm();
-};
-
-
 let deleteTask = (e) => {
     e.parentElement.parentElement.parentElement.parentElement.remove();
     // todos.splice(e.parentElement.parentElement.id, 1);
@@ -166,3 +132,9 @@ let resetForm = () => {
     taskDueDate.value = "";
     taskContent.value = "";
 };
+
+(() => {
+    allTasks = JSON.parse(localStorage.getItem("todos")) || []
+    console.log(todos);
+    createTasks();
+})();
