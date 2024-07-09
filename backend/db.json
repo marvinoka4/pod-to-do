@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Learn React",
+      "date": "2024-1-20",
+      "content": "Todo Content",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "title": "Learn React",
+      "date": "2024-1-20",
+      "content": "Todo Content",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "Learn React",
+      "date": "2024-1-20",
+      "content": "Todo Content",
+      "completed": false
+    }
+  ]
+}

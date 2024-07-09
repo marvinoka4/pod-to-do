@@ -1,19 +1,38 @@
 main {
-    font-family: sans-serif;
+    height: 70vh;
+    display: flex;
     margin: 0 50px;
     overflow: hidden;
-    justify-content: center;
     align-items: center;
-    height: 50vh;
+    justify-content: center;
 }
 
 .to-do {
     overflow-y: scroll;
-    height: 500px;
+    height: 750px;
 }
 
 #errorMessage {
     color: red;
+    font-size: 14px;
+}
+
+.status-text {
+    text-transform: capitalize;
+}
+
+.status-pending {
+    font-size: 14px;
+    color: orangered;
+}
+
+.status-completed {
+    font-size: 14px;
+    color: green;
+}
+
+#taskStatusCheck {
+    display: none;
     font-size: 14px;
 }
 

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foundation for Sites</title>
+    <title>To Do Application</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
@@ -15,17 +15,15 @@
 <div class="grid-container">
     <main>
 
-        <div class="grid-x grid-padding-x align-center-middle">
-            <div class="large-12 cell text-center">
+        <div class="grid-x align-center-middle">
+            <div class="large-6 cell text-center">
                 <h1>To Do App</h1>
             </div>
-        </div>
 
-        <div class="grid-x grid-padding-x align-center-middle">
             <div class="large-6 cell">
                 <div class="callout primary to-do">
 
-                    <div class="grid-x grid-padding-x align-center-middle">
+                    <div class="grid-x align-center-middle">
                         <div class="medium-12 cell text-center">
                             <div id="new-task">
                                 <div class="button-group hollow no-gaps align-center" data-open="taskModal">
@@ -41,7 +39,7 @@
                     <div class="reveal" id="taskModal" data-reveal>
                         <form action="" id="taskForm">
                             <div class="grid-container">
-                                <div class="grid-x grid-padding-x">
+                                <div class="grid-x">
                                     <div class="medium-12 cell">
                                         <h3>Add New Task</h3>
                                         <p class="lead">Plan Better, Be Better.</p>
@@ -63,6 +61,15 @@
                                         </label>
                                     </div>
                                     <div class="medium-12 cell">
+                                        <label>Task Status
+                                            <select id="taskStatus">
+                                                <option value=" ">Select Status</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="completed">Completed</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <div class="medium-12 cell">
                                         <div class="button-group align-justify">
                                             <button class="alert button hollow" data-close aria-label="Close modal" type="button">Close</button>
                                             <button class="success button hollow" id="addTask" type="submit">Add</button>
@@ -77,53 +84,15 @@
                     </div>
 
 
-                    <div class="grid-x grid-padding-x align-center-middle">
+                    <div class="grid-x align-center-middle">
                         <div class="medium-9 cell text-center">
 
                             <h3>Tasks</h3>
 
                             <div id="allTasks">
-                                <div class="callout">
-                                    <div class="grid-x grid-padding-x">
-                                        <div class="cell medium-12">
-                                            <p><span>
-                                            <input id="task1" type="checkbox"/><label for="task1"><strong>Task 1</strong></label>
-                                        </span></p>
-                                        </div>
-                                        <div class="cell medium-12">
-                                            <p>
-                                                <span>2024-1-20</span>
-                                            </p>
-                                        </div>
-                                        <div class="cell medium-12">
-                                            <p>Be a DragonLord</p>
-                                        </div>
-                                        <div class="cell medium-12">
-                                            <div class="button-group hollow align-spaced options">
-                                                <a class="button secondary" data-open="taskModal">
-                                                    <i class="fa fa-edit" aria-hidden="true"></i>
-                                                </a>
-                                                <a class="button alert" onclick="deleteTask(this)">
-                                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="callout">
-                                    <h4><span>Task 2</span></h4>
-                                    <p><span>2024-1-20</span></p>
-                                    <p>Be a DragonLord</p>
-                                    <div class="button-group hollow align-center options">
-                                        <a class="button secondary">
-                                            <i class="fa fa-edit" aria-hidden="true"></i>
-                                        </a>
-                                        <a class="button alert">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
-                                </div>
+
+                                
                             </div>
                         </div>
                     </div>
