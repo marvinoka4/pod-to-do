@@ -1,5 +1,5 @@
 main {
-    height: 100vh;
+    /*height: 70vh;*/
     display: flex;
     margin: 0 50px;
     overflow: hidden;
@@ -8,8 +8,14 @@ main {
 }
 
 .to-do {
-    overflow-y: scroll;
     height: 750px;
+    overflow-y: scroll;
+    margin: 25px 0;
+    border: 2px solid #0a0a0a;
+}
+
+.all-tasks {
+    margin: 75px 0;
 }
 
 #errorMessage {
@@ -32,7 +38,6 @@ main {
 }
 
 #taskStatusCheck {
-    display: none;
     font-size: 14px;
 }
 

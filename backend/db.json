@@ -12,14 +12,14 @@
       "title": "Learn React",
       "date": "2024-1-20",
       "content": "Todo Content",
-      "completed": false
+      "completed":  "pending"
     },
     {
       "id": 3,
       "title": "Learn React",
       "date": "2024-1-20",
       "content": "Todo Content",
-      "completed": false
+      "completed":  "completed"
     }
   ]
 }

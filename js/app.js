@@ -28,7 +28,6 @@ let validateForm = () => {
         console.log("success");
         errorMessage.innerHTML = "";
         getTodo();
-        taskStatusToggle();
         addTask.setAttribute("data-close", "");
         addTask.click();
 
@@ -38,25 +37,22 @@ let validateForm = () => {
     }
 };
 
-
-let taskStatusToggle = () => {
-    if (taskStatus.value === "pending") {
-        document.getElementById('taskStatusCheck').style.display = "block";
-    } else if (taskStatus.value === "completed") {
-        document.getElementById('taskStatusCheck').style.display = "block";
-    } else {
-        document.getElementById('taskStatusCheck').style.display = "none";
-    }
+//generate random id
+function getUid() {
+    // Math.random should be unique because of its seeding algorithm.
+    // Convert it to base 36 (numbers + letters), and grab the 6 characters from position 2
+    // after the decimal.
+    return "_" + Math.random().toString(36).substr(2, 6);
 }
 
+console.log(getUid())//_iio3na
 
-
-
-let todos = [{}];
+let todos = [];
 
 let getTodo = () => {
 
     todos.push({
+        id: getUid(),
         title: taskTitle.value,
         date: taskDueDate.value,
         content: taskContent.value,
@@ -65,13 +61,14 @@ let getTodo = () => {
 
     localStorage.setItem("todos", JSON.stringify(todos));
 
-    console.log(todos);
-
     createTodo();
-}
 
-let createTasks = () => {
+};
+
+let createTodo = () => {
+
     allTasks.innerHTML = "";
+
     todos.map((x, y) => {
         return (allTasks.innerHTML += `
         <div class="callout" id=${y}>
@@ -90,10 +87,10 @@ let createTasks = () => {
                 </div>
                 <div class="cell medium-12">
                     <div class="button-group hollow align-spaced options">
-                        <a class="button secondary" data-open="taskModal" onclick="editTask(this)">
+                        <a class="button secondary" data-open="taskModal" onclick="editTodo(this)">
                             <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
-                        <a class="button alert" onclick="deleteTask(this)">
+                        <a class="button alert" onclick="deleteTodo(this); createTodo();">
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -106,24 +103,21 @@ let createTasks = () => {
     resetForm();
 };
 
-let deleteTask = (e) => {
+let deleteTodo = (e) => {
     e.parentElement.parentElement.parentElement.parentElement.remove();
-    // todos.splice(e.parentElement.parentElement.id, 1);
-    // localStorage.setItem("data", JSON.stringify(data));
-    // console.log(todos);
+    todos.splice(e.parentElement.parentElement.parentElement.parentElement.id, 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
+    console.log(todos);
 };
 
-let editTask = (e) => {
+let editTodo = (e) => {
     let selectedTask = e.parentElement.parentElement.parentElement.parentElement;
 
     taskTitle.value = selectedTask.children[0].children[0].children[0].innerHTML;
     taskDueDate.value = selectedTask.children[0].children[1].children[0].innerHTML;
     taskContent.value = selectedTask.children[0].children[2].children[0].innerHTML;
 
-    selectedTask.remove();
-    // todos.splice(e.parentElement.parentElement.id, 1);
-    // localStorage.setItem("data", JSON.stringify(data));
-    // console.log(todos);
+    deleteTodo(e);
 };
 
 
@@ -134,7 +128,7 @@ let resetForm = () => {
 };
 
 (() => {
-    allTasks = JSON.parse(localStorage.getItem("todos")) || []
+    todos = JSON.parse(localStorage.getItem("todos")) || []
     console.log(todos);
-    createTasks();
+    createTodo();
 })();
